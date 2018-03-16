@@ -1,0 +1,42 @@
+/* By Caroline */
+
+:root 
+{
+    --widthDiv: 40%;
+}
+
+#lateral
+{
+    top: 30%;
+}
+
+#required
+{
+    left: 30%;
+    width: var(--widthDiv);
+}
+
+#description
+{
+    width: var(--widthDiv);
+    top: 15%;
+}
+
+#modal
+{
+    width: var(--widthDiv);
+    top: 30%;
+}
+
+#files
+{
+    width: var(--widthDiv);
+    top: 70%;
+}
+
+#remark
+{
+    top: 35%;
+    left: 75%;
+    width: 15%;
+}

@@ -1,0 +1,94 @@
+    
+/* by julien */
+:root {
+    --primary-color: #37474f;
+    --primary-colorlight: #62717b;
+    --primary-colordark: #101f27;
+    --secondary-color: #b71c1c;
+    --secondary-colorlight: #f05545;
+    --secondary-colordark: #7f0000;
+    --third-color: #ffee58;
+    --third-colorlight: #cddc39;
+    --third-colordark: #66bb6a;
+    --title-size: 4em;
+    --normal-size: 2em;
+    --medium-size: 3em;
+    --title-family: Garamond;
+    --normal-family: 'Sans Serif';
+    --highlight-family: Monospace;
+}
+
+/*** View Fixed ***/
+body
+{
+    background-image: url("../img/plane.svg");
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+    background-position: bottom left;
+    background-size: 50% ;
+}
+
+.hidden
+{
+    visibility: hidden;
+}
+
+.visible
+{
+    visibility: visible; 
+}
+
+header 
+{
+    background-color: var(--primary-color);
+}
+
+#lateral p
+{
+    background-color: var(--primary-colorlight);
+}
+
+#modal
+{
+    background-image: url("../img/message.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: white;
+    border: 1px solid black;
+    height: 25em;
+}
+
+
+/*** View Upload ***/
+
+form
+{
+    margin : auto;
+    width: 60%;
+    text-align: center;
+}
+
+form input,textarea{
+    margin-top:9em;
+    height:4em;
+    width:90%; 
+}
+
+input[type='file']
+{
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    appearance:none;
+}
+
+input[type='email']
+{
+    -webkit-appearance: none;
+    -moz-appearance:none;
+    appearance:none;
+    background: rgb(255,255,255);
+    background: -moz-linear-gradient(left, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
+    background: -webkit-linear-gradient(left, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
+    background: linear-gradient(to right, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
+}
