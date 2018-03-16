@@ -1,7 +1,11 @@
+<!-- ////////////         in HTML file :           ///////// -->
+<!-- <form action="upload.php" method="post" enctype="multipart/form-data">
+    <input type="file" name="fileToUpload" id="fileToUpload" multiple>
+-->
 
 <?php
-// echo (var_dump($_FILES));
 
+// TO DO : add inner directory with variable folder name
 $target_dir = "uploads/";
 
 // Find number of files :
@@ -29,6 +33,7 @@ for ($i = 0; $i < $n; $i++){
       }
   }
 }
+
 if ($success == 0) {
   echo "Sorry, something went wrong, no file was uploaded";
 } else {
