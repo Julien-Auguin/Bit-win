@@ -1,0 +1,95 @@
+/* By Caroline */
+
+*
+{
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+:root 
+{
+    font-size: 15px;
+}
+
+
+/*** View Fixed ***/
+.flex
+{
+    display: flex;
+}
+
+
+header 
+{
+    width: 100%;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+}
+
+/* svg
+{
+    background-color: aqua;
+    width:
+} */
+
+
+#logo
+{
+    padding-right: 2%;
+}
+
+#lateral
+{
+    position: fixed;
+}
+
+#lateral p
+{
+    margin-top: 2em;    
+    margin-bottom: 2em;
+    text-align: center;
+    -webkit-transform: translate(-35%, 0) rotate(-90deg);
+    -moz-transform: translate(-35%, 0) rotate(-90deg);
+    -o-transform: translate(-35%, 0) rotate(-90deg);
+    -ms-transform: translate(-35%, 0) rotate(-90deg);
+    transform: translate(-35%, 0) rotate(-90deg);
+    padding: 0.6em;
+    width: 5em;
+}
+
+
+#required
+{
+    position: fixed;
+    overflow: auto;
+}
+
+#description
+{
+    position: fixed;
+    line-height: 2em;
+    word-wrap: break-word;
+}
+
+#modal
+{
+    position: fixed;
+    line-height: 2em;
+    word-wrap: break-word;
+}
+
+
+#files
+{
+    position: fixed;
+    line-height: 2em;
+    word-wrap: break-word;
+}
+
+#remark
+{
+    position: fixed;
+    line-height: 2em;
+    word-wrap: break-word;
+}
