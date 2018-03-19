@@ -1,6 +1,6 @@
 /* By Caroline */
 
-:root 
+:root
 {
     --widthDiv: 40%;
 }
@@ -12,20 +12,25 @@
 
 #required
 {
-    left: 30%;
+    left: 50%;
     width: var(--widthDiv);
 }
 
-#description
+#note
 {
     width: var(--widthDiv);
     top: 15%;
 }
 
+#description
+{
+  position: fixed;
+  top:10%;
+  text-align: center;
+}
 #modal
 {
     width: var(--widthDiv);
-    top: 30%;
 }
 
 #files

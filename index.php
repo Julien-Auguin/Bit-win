@@ -12,11 +12,13 @@
 </head>
 <body>
     <?php
-    // include "viewUpload.php";
-    // include "viewDownload.php";
-    include "viewFixed.php";
-    // include "controler.php";
-    // include "viewConfirm.php"
+    // include "php/viewUpload.php";
+    // include "php/viewDownload.php";
+    require "php/viewFixed.php";
+    // include "php/controler.php";
+    // include "php/viewConfirm.php"
     ?>
+    <!-- <iframe id="modal" src="viewUpload.php"></iframe> -->
+
 </body>
 </html>

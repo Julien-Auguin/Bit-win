@@ -7,9 +7,9 @@
     border: none;
 }
 
-:root 
+:root
 {
-    font-size: 15px;
+    font-size: 1vh;
 }
 
 
@@ -20,19 +20,12 @@
 }
 
 
-header 
+header
 {
     width: 100%;
     padding-top: 1.5em;
     padding-bottom: 1.5em;
 }
-
-/* svg
-{
-    background-color: aqua;
-    width:
-} */
-
 
 #logo
 {
@@ -46,7 +39,7 @@ header
 
 #lateral p
 {
-    margin-top: 2em;    
+    margin-top: 2em;
     margin-bottom: 2em;
     text-align: center;
     -webkit-transform: translate(-35%, 0) rotate(-90deg);
@@ -59,13 +52,37 @@ header
 }
 
 
-#required
+/* #required
 {
     position: fixed;
-    overflow: auto;
-}
+    transform: translate(-50%, -50%);
+} */
 
 #description
+{
+    position: fixed;
+    line-height: 2em;
+    width: 100%;
+    word-wrap: break-word;
+    top: 2.5em;
+    text-align: center;
+}
+
+
+/* By Laure */
+
+#files
+{
+    position: fixed;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    text-align: center;
+    line-height: 2em;
+    word-wrap: break-word;
+    top: 23em;
+}
+
+#remark
 {
     position: fixed;
     line-height: 2em;
@@ -75,21 +92,42 @@ header
 #modal
 {
     position: fixed;
-    line-height: 2em;
-    word-wrap: break-word;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 30em;
 }
 
-
-#files
-{
-    position: fixed;
-    line-height: 2em;
-    word-wrap: break-word;
+#slide {
+  height: 30em;
+  position: relative;
+  overflow: hidden;
 }
 
-#remark
+#inputs
 {
-    position: fixed;
-    line-height: 2em;
-    word-wrap: break-word;
+  position: absolute;
+  width: 100%;
+}
+
+.wrap
+{
+  position: relative;
+  height: 30em;
+}
+
+/* navigation */
+
+#down {
+  position: fixed;
+  top: 35em;
+  left: 19em;
+  width: 4em;
+  z-index: 100;
+}
+#up {
+  position: fixed;
+  top: 5em;
+  left: 19em;
+  width: 4em;
+  z-index: 100;
 }

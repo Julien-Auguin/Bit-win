@@ -1,4 +1,4 @@
-    
+
 /* by julien */
 :root {
     --primary-color: #37474f;
@@ -16,16 +16,20 @@
     --title-family: Garamond;
     --normal-family: 'Sans Serif';
     --highlight-family: Monospace;
+    --bg-input: 'linear-gradient(to right, rgb(255,255,255) 0%, rgb(166,190,208) 100%)';
+    font-family: var(--normal-family);
+    font-size: 0.7em;
 }
 
 /*** View Fixed ***/
-body
+.body
 {
     background-image: url("../img/plane.svg");
-    background-repeat: no-repeat; 
+    background-repeat: no-repeat;
     background-attachment: fixed;
-    background-position: bottom left;
-    background-size: 50% ;
+    /* position : x y */
+    background-position: 20% 10%;
+    background-size: 80% ;
 }
 
 .hidden
@@ -35,12 +39,13 @@ body
 
 .visible
 {
-    visibility: visible; 
+    visibility: visible;
 }
 
-header 
+header
 {
     background-color: var(--primary-color);
+
 }
 
 #lateral p
@@ -48,47 +53,122 @@ header
     background-color: var(--primary-colorlight);
 }
 
-#modal
-{
-    background-image: url("../img/message.svg");
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-color: white;
-    border: 1px solid black;
-    height: 25em;
-}
-
 
 /*** View Upload ***/
 
 form
 {
-    margin : auto;
+    margin: auto;
     width: 60%;
     text-align: center;
+    position: relative;
 }
 
-form input,textarea{
-    margin-top:9em;
-    height:4em;
-    width:90%; 
+input {
+  width: 10em;
 }
 
-input[type='file']
+
+
+/* By Laure */
+
+/* Transition on jump from one wrap to another */
+
+#inputs
 {
-    -webkit-appearance: none;
-    -moz-appearance:none;
-    appearance:none;
+  transition: 0.2s;
+  -webkit-transition: 0.2s;
 }
 
-input[type='email']
+/* Wrapping inputs and their background */
+.wrap {
+  padding: .5em;
+  text-align: center;
+}
+
+/* WRAP FILES : 2 items - input file and reset button */
+#wrap-file {
+  /* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
+  background: 0 6em/contain no-repeat url('../img/folder-etiquette.svg') ;
+}
+
+      /* UPLOAD BUTTON APPEARANCE */
+      input[type='file']
+      /* we need to override browser appearance by hiding it */
+      /* some image (background here) will provide for its new pseudo-appearance */
+      {
+          font-size: 150%;
+          /* font-size gives the input area's height, for clicking */
+          cursor: pointer;
+          /* important : cursor appearance changes to hand pointing when hovering over the button */
+
+          /* now set it transparent */
+          opacity: 0;
+
+          /* as our own text has been put before the input tag, */
+          /* negative margin forces it to overlap with it : -25% would have put it in the middle */
+          margin-left: -30%;
+
+          /* giving it a max-width so it does not behave as an inline */
+          max-width: 50%;
+          /* relative to its parent's width */
+
+          margin-top: 10em;
+      }
+
+      #reset-files {
+        width: 1em;
+        color: black;
+        font-size: 1.5em;
+        font-weight: bolder;
+        background: 0 60%/contain no-repeat url("../img/reset.svg");
+      }
+
+      #reset-files:hover {
+        color: white;
+      }
+
+/* WRAP SENDER - 1 item : input mail */
+#wrap-sender
 {
-    -webkit-appearance: none;
-    -moz-appearance:none;
-    appearance:none;
-    background: rgb(255,255,255);
-    background: -moz-linear-gradient(left, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
-    background: -webkit-linear-gradient(left, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
-    background: linear-gradient(to right, rgb(255,255,255) 0%, rgb(166,190,208) 100%);
+  background: 15% 42%/70% no-repeat url('../img/enveloppe.svg');
+}
+
+/* WRAP MESSAGE - 2 items : input text (name) & textarea */
+#wrap-message
+{
+  background: 0 42%/contain no-repeat url('../img/message.svg');
+  display: flex;
+  flex-direction: column;
+}
+
+/* WRAP RECIPIENT - 1 item : input mail */
+#wrap-recipient
+{
+  background: 0 42%/contain no-repeat url('../img/closed-enveloppe.svg');
+}
+
+/* WRAP SUBMIT - 1 item : input submit */
+#wrap-submit
+{
+  background: 0 42%/contain no-repeat url('../img/send.svg');
+}
+
+/* GENERAL : reset appearance */
+input, textarea
+{
+  -webkit-appearance: none;
+  -moz-appearance:none;
+  appearance:none;
+  /* background-image: var(--bg-input); */
+}
+
+textarea
+{
+  height: 15em;
+}
+
+input
+{
+  line-height: 2em;
 }
