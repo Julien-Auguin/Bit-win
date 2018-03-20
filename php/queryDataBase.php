@@ -2,9 +2,6 @@
 
 <?php
 
-$total = count($_FILES['select']['name']);
-echo $total;
-
     // Function insertUser in table Users
     function insertUser(PDO $conn,$userMail,$nameUser,$message){
         $user_mail = $userMail;
@@ -57,12 +54,10 @@ echo $total;
                 
                 // count the lenght of array $_FILES
                 $total = count($_FILES['select']['name']);
-                echo $total;
     
                 // Loop through each file
                 for($i=0; $i<$total; $i++) {    
                     $file_name = $_FILES['select']['name'][$i];
-                    // echo "filename = ". $file_name;
                     $file_size = $_FILES['select']['size'][$i];
                     // $directory_name = ;
                     $requete2 = $conn->prepare(
@@ -80,7 +75,7 @@ echo $total;
                             echo "<em>Please select file </em>";
                         }
                 }
-                    $_FILES = "";
+                    // $_FILES = "";
             }
             else echo "Pas de fichier";
     }
