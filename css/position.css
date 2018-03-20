@@ -7,11 +7,6 @@
     border: none;
 }
 
-:root
-{
-    font-size: 1vh;
-}
-
 
 /*** View Fixed ***/
 .flex
@@ -94,40 +89,35 @@ header
     position: fixed;
     transform: translate(-50%, -50%);
     left: 50%;
-    top: 30em;
-}
-
-#slide {
-  height: 30em;
-  position: relative;
-  overflow: hidden;
+    top: 20em;
 }
 
 #inputs
 {
-  position: absolute;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .wrap
 {
-  position: relative;
-  height: 30em;
+  height: 15em;
 }
 
 /* navigation */
 
 #down {
-  position: fixed;
-  top: 35em;
-  left: 19em;
   width: 4em;
   z-index: 100;
 }
 #up {
-  position: fixed;
-  top: 5em;
-  left: 19em;
   width: 4em;
   z-index: 100;
+}
+
+.hide {
+  display: none;
+}
+.show {
+  display: block;
 }

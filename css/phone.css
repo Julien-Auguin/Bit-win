@@ -2,18 +2,14 @@
 
 :root
 {
-    --widthDiv: 100em;
+    --widthDiv: 60em;
+    font-size: 12px;
 }
 
 #lateral
 {
     top: 30%;
     /* visibility: hidden; */
-}
-
-#required
-{
-    width: var(--widthDiv);
 }
 
 #description

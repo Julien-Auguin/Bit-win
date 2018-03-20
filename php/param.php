@@ -1,6 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "bitwin";
+$database = "Bitwin";
 $password = "werock";
 $username = "bitwin5";
 ?>

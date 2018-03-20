@@ -1,10 +1,7 @@
 $(function(){
 
-  // $( window ).scroll(function() {
-  //   $( "#description" ).css( "color", "red" );
-  //   $( "#inputs" ).css( "top", "-50em" );
-  // });
   $('#select').change(function(){
+    $('#files').html("");
     $.each(this.files, function (i, file) {
         $('#files').append(file.name + "<br>");
     });
@@ -15,7 +12,4 @@ $(function(){
     $('#files').html("");
   });
 
-  // $('#inputs').on('mousewheel', function(e){
-  //     $( "#inputs" ).css( "top", "-50em" );
-  // });
 });

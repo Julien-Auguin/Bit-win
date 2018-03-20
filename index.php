@@ -8,6 +8,7 @@
     <link rel="stylesheet" media="screen and (min-width: 781px)" href="css/screen.css">
     <link rel="stylesheet" href="css/position.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" src="//normalize-css.googlecode.com/svn/trunk/normalize.css" /> 
     <title>BIT-WIN !</title>
 </head>
 <body>

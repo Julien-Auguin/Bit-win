@@ -16,9 +16,9 @@
     --title-family: Garamond;
     --normal-family: 'Sans Serif';
     --highlight-family: Monospace;
-    --bg-input: 'linear-gradient(to right, rgb(255,255,255) 0%, rgb(166,190,208) 100%)';
+    --bg-input: 'rgb(186,200,228)';
+    /* --bg-input: 'linear-gradient(to right, rgba(255,255,255, 0.8) 0%, rgba(166,190,208, 0.8) 100%)'; */
     font-family: var(--normal-family);
-    font-size: 0.7em;
 }
 
 /*** View Fixed ***/
@@ -83,14 +83,25 @@ input {
 /* Wrapping inputs and their background */
 .wrap {
   padding: .5em;
-  text-align: center;
+}
+
+.wrap p {
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 /* WRAP FILES : 2 items - input file and reset button */
 #wrap-file {
   /* background: bg-color bg-image position/bg-size bg-repeat bg-origin bg-clip bg-attachment initial|inherit; */
-  background: 0 6em/contain no-repeat url('../img/folder-etiquette.svg') ;
+  background: 0 2em/contain no-repeat url('../img/folder-etiquette.svg');
 }
+      #wrap-file p { position: relative; }
+
+      #wrap-file p * { display: inline; }
+      #wrap-file p span { margin-top: 3em; }
 
       /* UPLOAD BUTTON APPEARANCE */
       input[type='file']
@@ -105,22 +116,18 @@ input {
           /* now set it transparent */
           opacity: 0;
 
-          /* as our own text has been put before the input tag, */
-          /* negative margin forces it to overlap with it : -25% would have put it in the middle */
-          margin-left: -30%;
-
           /* giving it a max-width so it does not behave as an inline */
-          max-width: 50%;
+          max-width: 40%;
           /* relative to its parent's width */
 
-          margin-top: 10em;
+          margin-right: 3em;
+          position: absolute;
+          top: 5em;
       }
 
       #reset-files {
-        width: 1em;
-        color: black;
-        font-size: 1.5em;
-        font-weight: bolder;
+        width: 2em;
+        margin-left: 5em;
         background: 0 60%/contain no-repeat url("../img/reset.svg");
       }
 
@@ -128,31 +135,61 @@ input {
         color: white;
       }
 
+      #files {
+        font-size: 0.8em;
+        text-align: right;
+        z-index: -1;
+      }
 /* WRAP SENDER - 1 item : input mail */
 #wrap-sender
 {
-  background: 15% 42%/70% no-repeat url('../img/enveloppe.svg');
+  background: 0 2em/contain no-repeat url('../img/enveloppe-miOpen.svg');
 }
 
 /* WRAP MESSAGE - 2 items : input text (name) & textarea */
 #wrap-message
 {
-  background: 0 42%/contain no-repeat url('../img/message.svg');
-  display: flex;
-  flex-direction: column;
+  background: 0 2em/contain no-repeat url('../img/message.svg');
 }
+
+      textarea
+      {
+        height: 10em;
+        width: 30em;
+        overflow: hidden;
+        border-bottom: 1px solid lightgrey;
+        border-left: 1px solid lightgrey;
+      }
+
+      #name
+      {
+        border-bottom: 1px solid rgb(157, 182, 193);
+        width: 23em;
+        margin-bottom: 1em;
+      }
 
 /* WRAP RECIPIENT - 1 item : input mail */
 #wrap-recipient
 {
-  background: 0 42%/contain no-repeat url('../img/closed-enveloppe.svg');
+  background: 0 2em/contain no-repeat url('../img/closed-enveloppe.svg');
 }
 
 /* WRAP SUBMIT - 1 item : input submit */
 #wrap-submit
 {
-  background: 0 42%/contain no-repeat url('../img/send.svg');
+  background: 0 2em/contain no-repeat url('../img/send.svg');
+  text-align: left;
 }
+
+      #upload
+      {
+        font-size: 150%;
+        cursor: pointer;
+        opacity: 0;
+        margin: -1em;
+      }
+
+
 
 /* GENERAL : reset appearance */
 input, textarea
@@ -160,12 +197,7 @@ input, textarea
   -webkit-appearance: none;
   -moz-appearance:none;
   appearance:none;
-  /* background-image: var(--bg-input); */
-}
-
-textarea
-{
-  height: 15em;
+  background-color: var(--bg-input);
 }
 
 input

@@ -2,7 +2,8 @@
 
 :root
 {
-    --widthDiv: 40%;
+    --widthDiv: 40em;
+    font-size: 20px;
 }
 
 #lateral
