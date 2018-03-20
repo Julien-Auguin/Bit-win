@@ -14,7 +14,7 @@
     <?php
     // include "viewUpload.php";
     // include "viewDownload.php";
-    include "viewFixed.php";
+    include "php/viewFixed.php";
     // include "controler.php";
     // include "viewConfirm.php";
     ?>
