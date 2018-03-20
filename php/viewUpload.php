@@ -13,85 +13,114 @@
 </head>
 
 <body>
-    <div>
-        <p id="description">description</div>
 
+    <div><p id="description">description</p></div>
 
-        <form method="POST" action="confirm.php" target="#modal" id="slide">
+    <form method="POST" action="confirm.php" target="#modal" id="slide">
           <img src="img/top.svg" id="up">
 
           <div id="inputs">
 
-            <div id="wrap-file" class="wrap">Select files
+            <div id="wrap-file" class="wrap show">
+              <p>
                 <input type="file" name="select" id="select" multiple autofocus tabindex=1 required>
-                <input type="button" id="reset-files">
+                <span>Select files<input type="button" id="reset-files"></span>
+              </p>
             </div>
-            <div id="wrap-sender" class="wrap">
+            <div id="wrap-sender" class="wrap hide">
+              <p>
                 <input type="email" name="mail-sender" id="mail-sender" class="email" placeholder="Your e-mail" tabindex=2 required>
+              </p>
             </div>
-            <div id="wrap-message" class="wrap">
+            <div id="wrap-message" class="wrap hide">
+              <p>
                 <input type="text" name="name" id="name" class="text" placeholder="Your name" tabindex=3 optional>
                 <textarea name="message" id="message" class="message" placeholder="Want to add a message ?" tabindex=4 optional></textarea>
+              </p>
             </div>
-            <div id="wrap-recipient" class="wrap">
-              <input type="email" name="recipient" id="recipient" class="email" placeholder="Recipient e-mail" tabindex=5 required>
+            <div id="wrap-recipient" class="wrap hide">
+              <p>
+                <input type="email" name="recipient" id="recipient" class="email" placeholder="Recipient e-mail" tabindex=5 required>
+              </p>
             </div>
-            <div id="wrap-submit" class="wrap">
+            <div id="wrap-submit" class="wrap hide">
+              <p>
+                Send
                 <input type="submit" value="" name="upload" id="upload" tabindex=6>
+              </p>
             </div>
 
-          </div>
+          </div> <!-- inputs -->
 
           <img src="img/bottom.svg" id="down">
-        </form>
+    </form>
 
-<div id="files"></div>
-    </div>
-    <div>
-        <!-- commentaire -->
-    </div>
-        <script
-    			  src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    			  integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
-    			  crossorigin="anonymous">
-        </script>
+    <div id="files"></div>
 
-        <script type="text/javascript" src="js/event.js"></script>
 
-        <script type="text/javascript">
+        <!-- SCRIPTS -->
 
-          $("#select").focus();
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 
-          var down = document.getElementById('down');
-          var up = document.getElementById('up');
-          var inputs = document.getElementById('inputs');
-          var inputsTop = 0;
-          down.addEventListener('mouseover', function() {
-            console.log(inputsTop);
-            if (inputsTop > -120) inputsTop -= 30;
-            inputs.style.top = inputsTop + 'em';
-          });
-          up.addEventListener('mouseover', function() {
-            console.log(inputsTop);
-            if (inputsTop < 0) inputsTop += 30;
-          inputs.style.top = inputsTop + 'em';
-          });
+    <script type="text/javascript" src="js/event.js"></script>
 
-        </script>
-        <!-- <script type="text/javascript">
-            $(function() {  // jquery start
-              // Focus on file input
+    <script type="text/javascript">
+
+        $(function(){ // JQuery open
+
               $("#select").focus();
 
-              $("#slide").on({
-                mouseenter: function () {
-                  var pos'-50em'
-                   $("#inputs").css('top', pos).fade;
+        }); // JQuery close
+              var wrap = 0;
+
+              var up = document.getElementById("up");
+              up.addEventListener('mouseover', function (){
+                console.log("up");
+                if (wrap > 0) {
+                  hideWrap(wrap);
+                  wrap--;
+                  showWrap(wrap);
                 }
-                // mouseleave:function () {
-                //    $(this).css('border', 'none');
-                // }
-              },'#up');
+              });
+
+              var down = document.getElementById("down");
+              down.addEventListener('mouseover', function (){
+                console.log("down");
+                if (wrap < 4) {
+                  hideWrap(wrap);
+                  wrap++;
+                  showWrap(wrap);
+                }
+              });
+
+              var inputs = document.getElementsByClassName('wrap');
+              function hideWrap(wrap) {
+                inputs[wrap].className = 'wrap hide';
+                console.log("hide" + wrap);
+              }
+              function showWrap(wrap) {
+                inputs[wrap].className = 'wrap show';
+                console.log("show" + wrap);
+              }
+
+
+    </script>
+
+
+         <!-- <script type="text/javascript">
+        //     $(function() {  // jquery start
+        //       // Focus on file input
+        //       $("#select").focus();
+        //
+        //       $("#slide").on({
+        //         mouseenter: function () {
+        //           var pos'-50em'
+        //            $("#inputs").css('top', pos).fade;
+        //         }
+        //         // mouseleave:function () {
+        //         //    $(this).css('border', 'none');
+        //         // }
+        //       },'#up');
 
               // $('#up').hover(function() {
               //   alert(0);
@@ -101,14 +130,14 @@
               //   // pos = pos.replace('px', '');
               //   // $('#inputs').css('top', pos + 25 + 'px');
               // });
-              $('#inputs').on('click keypress', function(e) {
-                if ( (e.keyCode==9) && !($('#name').focus()) ){
-                  e.preventDefault;
-                  $('#inputs').css('top', 25 + "em");
-                  console.log($('#inputs').offset.top);
-                  console.log($('#inputs').css('top'));
-                }
-              });
+              // $('#inputs').on('click keypress', function(e) {
+              //   if ( (e.keyCode==9) && !($('#name').focus()) ){
+              //     e.preventDefault;
+              //     $('#inputs').css('top', 25 + "em");
+              //     console.log($('#inputs').offset.top);
+              //     console.log($('#inputs').css('top'));
+              //   }
+              // });
               // var pos = 0;
               // var dir = -1;
               // var step = 50;
