@@ -19,16 +19,23 @@
 
     <div id="lateral">
         <p>Help</p>
-        <br>
         <p>CGU</p>
     </div>
 
     <div id="modal">
-        <?php require "php/viewUpload.php"; ?>
+        <?php
+          if ($_GET['modal'] == "confirm") require "php/viewConfirm.php";
+          else if ($_GET['modal'] == "download") require "php/viewConfirm.php";
+          else require "php/viewUpload.php";
+        ?>
     </div>
 
     <div id="remark">
-        <p>lorem</p>
+        <p>
+            <?php
+              include "queryDataBase.php";
+            ?>
+        </p>
     </div>
 
 

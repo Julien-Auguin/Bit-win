@@ -16,7 +16,7 @@
 
     <div><p id="description">description</p></div>
 
-    <form method="POST" action="confirm.php" target="#modal" id="slide">
+    <form method="POST" action="index.php?modal=confirm" id="slide">
           <img src="img/top.svg" id="up">
 
           <div id="inputs">
@@ -53,9 +53,11 @@
           </div> <!-- inputs -->
 
           <img src="img/bottom.svg" id="down">
+          <div id="comment"></div>
     </form>
 
     <div id="files"></div>
+
 
 
         <!-- SCRIPTS -->
@@ -69,13 +71,17 @@
         $(function(){ // JQuery open
 
               $("#select").focus();
+              $("#select").val('');
+              $("#mail-sender").val('');
+              $("#name").val('');
+              $("#message").val('');
+              $("#recipient").val('');
 
-        }); // JQuery close
+
               var wrap = 0;
 
               var up = document.getElementById("up");
               up.addEventListener('mouseover', function (){
-                console.log("up");
                 if (wrap > 0) {
                   hideWrap(wrap);
                   wrap--;
@@ -83,10 +89,29 @@
                 }
               });
 
+              var select = document.getElementById("select");
+              var mailSender = document.getElementById("mail-sender");
+              var recipient = document.getElementById("recipient");
               var down = document.getElementById("down");
+              var okWrap = false;
               down.addEventListener('mouseover', function (){
-                console.log("down");
-                if (wrap < 4) {
+                switch (wrap) {
+                  case 0:
+                    if (select.files.length > 0) okWrap = true;
+                    else okWrap = false;
+                    break;
+                  case 1:
+                    if ($("#mail-sender").is(':valid')) okWrap = true;
+                    else okWrap = false;
+                    break;
+                  case 3:
+                    if ($("#recipient").is(':valid')) okWrap = true;
+                    else okWrap = false;
+                    break;
+                  case 4:
+                    okWrap = false;
+                }
+                if (okWrap) {
                   hideWrap(wrap);
                   wrap++;
                   showWrap(wrap);
@@ -96,81 +121,14 @@
               var inputs = document.getElementsByClassName('wrap');
               function hideWrap(wrap) {
                 inputs[wrap].className = 'wrap hide';
-                console.log("hide" + wrap);
               }
               function showWrap(wrap) {
                 inputs[wrap].className = 'wrap show';
-                console.log("show" + wrap);
               }
 
-
+        }); // JQuery close
     </script>
 
-
-         <!-- <script type="text/javascript">
-        //     $(function() {  // jquery start
-        //       // Focus on file input
-        //       $("#select").focus();
-        //
-        //       $("#slide").on({
-        //         mouseenter: function () {
-        //           var pos'-50em'
-        //            $("#inputs").css('top', pos).fade;
-        //         }
-        //         // mouseleave:function () {
-        //         //    $(this).css('border', 'none');
-        //         // }
-        //       },'#up');
-
-              // $('#up').hover(function() {
-              //   alert(0);
-              //   $(this).css('src', 'img/bottom.svg');
-              //   // var pos = $('#inputs').css('top');
-              //   // alert(pos);
-              //   // pos = pos.replace('px', '');
-              //   // $('#inputs').css('top', pos + 25 + 'px');
-              // });
-              // $('#inputs').on('click keypress', function(e) {
-              //   if ( (e.keyCode==9) && !($('#name').focus()) ){
-              //     e.preventDefault;
-              //     $('#inputs').css('top', 25 + "em");
-              //     console.log($('#inputs').offset.top);
-              //     console.log($('#inputs').css('top'));
-              //   }
-              // });
-              // var pos = 0;
-              // var dir = -1;
-              // var step = 50;
-              // $('body').bind('keypress', function(e) {
-              //   alert($('#inputs').css("top") + " " + $('#inputs').offset.top);
-                  // if ( (e.keyCode==9) && !($('#name').focus()) ){
-                  //   e.preventDefault;
-                  //   if ($('#select').focus()) {
-                  //     pos = 1;
-                  //   }
-                  //   if ($('#mail-sender').focus()) {
-                  //     pos = 2;
-                  //   }
-                  //   if ($('#message').focus()) {
-                  //     pos = 3;
-                  //   }
-                  //   if ($('#select').focus()) {
-                  //     pos = 4;
-                  //   }
-                  //
-                  //   if (e.shiftKey) {
-                  //     dir = -1;
-                  //   }
-                  //   else {
-                  //     dir = 1;
-                  //   }
-                  //   var move = (pos + dir) * step + "em";
-                  //   $('#inputs').css("top", move);
-                  // }
-              // });
-
-          }); // JQuery end
-        </script> -->
 </body>
 
 </html>
